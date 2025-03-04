@@ -1,0 +1,25 @@
+services:
+  website:
+    container_name: website
+    restart: unless-stopped
+    image: hugomods/hugo:nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HUGO_BASEURL: "https://www.nico-nostheide.de"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.website-router.rule=Host(`www.nico-nostheide.de`)
+      - traefik.http.routers.website-router.tls=true
+      - traefik.http.routers.website-router.entrypoints=websecure
+      - traefik.http.routers.website-router.tls.certresolver=myresolver
+      - traefik.http.routers.website-router.service=website-srv
+      - traefik.http.services.website-srv.loadbalancer.server.port=80
+      - traefik.http.services.website-srv.loadbalancer.server.scheme=http
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

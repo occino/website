@@ -1,0 +1,44 @@
+baseURL = 'http://www.nico-nostheide.de/'
+languageCode = 'de-de'
+theme = "hugo-theme-nightfall"
+
+[menu]
+  [[menu.header]]
+    name = "posts"
+    weight = 0
+    url = "posts"
+  [[menu.header]]
+    name = "about"
+    weight = 1
+    url = "about"
+
+[params]
+user = "hello"
+hostname = "nico-nostheide.de"
+  [params.author]
+    name = "Nico Nostheide"  # Website and RSS feed author
+    email = "nicolas.nostheide@gmail.com"  # RSS feed email address
+
+
+readingTime = false  # Show reading time on post page
+published = false  # Show published data on post page
+
+[[params.social]]
+key = 0
+name = "github"
+url = "https://github.com/occino"
+target = "_blank"
+aria = "GitHub Profile"
+
+[[params.social]]
+key = 1
+name = "linkedin"
+url = "https://www.linkedin.com/in/nicolas-nostheide-a55b7564/"
+target = "_blank"
+aria = "LinkedIn Profile"
+
+[[params.social]]
+key = 2
+name = "email"
+url = "mailto:nicolas.nostheide@gmail.com"
+aria = "My e-Mail Address"
