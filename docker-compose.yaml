@@ -17,6 +17,7 @@ services:
       - traefik.http.routers.website-router.service=website-srv
       - traefik.http.services.website-srv.loadbalancer.server.port=80
       - traefik.http.services.website-srv.loadbalancer.server.scheme=http
+      - com.centurylinklabs.watchtower.enable=true
     networks:
       - proxy
 
